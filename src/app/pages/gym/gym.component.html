@@ -1,0 +1,24 @@
+<form (ngSubmit)="onSubmit()" #gymForm="ngForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" [(ngModel)]="gym.name" name="name" required>
+    
+    <label for="street">Street:</label>
+    <input type="text" id="street" [(ngModel)]="gym.address.street" name="street" required>
+    
+    <label for="city">City:</label>
+    <input type="text" id="city" [(ngModel)]="gym.address.city" name="city" required>
+    
+    <label for="postalCode">Postal Code:</label>
+    <input type="text" id="postalCode" [(ngModel)]="gym.address.postalCode" name="postalCode" required>
+    
+    <label for="country">Country:</label>
+    <input type="text" id="country" [(ngModel)]="gym.address.country" name="country" required>
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" [(ngModel)]="gym.contact.email" name="email" required>
+    
+    <!-- Add more fields as necessary -->
+    
+    <button type="submit">Add Gym</button>
+  </form>
+  

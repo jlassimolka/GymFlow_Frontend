@@ -1,0 +1,42 @@
+<!-- showcoach.component.html -->
+
+<div class="modal-overlay" (click)="closeDialog()"></div>
+<div class="modal-container">
+  <div class="modal-header">
+    <h2>Coach Details</h2>
+  </div>
+  <div class="modal-content">
+    <div *ngIf="coach">
+      <div class="coach-details">
+        <p><strong>Name:</strong> {{ coach.name }}</p>
+        <p><strong>Email:</strong> {{ coach.email }}</p>
+        <p><strong>Phone Number:</strong> {{ coach.numeroDeTel }}</p>
+
+        <ng-container *ngIf="coach.status">
+          <p><strong>Status:</strong> {{ coach.status }}</p>
+        </ng-container>
+        
+        <ng-container *ngIf="coach.price">
+          <p><strong>Price:</strong> {{ coach.price | currency }}</p>
+        </ng-container>
+        
+        <ng-container *ngIf="coach.trainingSpecialties.length > 0">
+          <div class="coach-specialties">
+            <h3>Training Specialties</h3>
+            <ul>
+              <li *ngFor="let specialty of coach.trainingSpecialties">{{ specialty }}</li>
+            </ul>
+          </div>
+        </ng-container>
+        
+        <div class="coach-gyms">
+          <h3>Gyms</h3>
+          <ul>
+            <li *ngFor="let gym of coach.gyms">{{ gym.name }}</li>
+          </ul>
+        </div>
+      </div>
+      <button class="close-button" (click)="closeDialog()">Close</button>
+    </div>
+  </div>
+</div>

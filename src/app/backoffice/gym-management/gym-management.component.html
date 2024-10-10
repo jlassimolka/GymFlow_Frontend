@@ -1,0 +1,82 @@
+
+<p-fieldset legend="Gym managment">
+    
+    <div class="p-grid p-align-center p-justify-center search-container" style="margin-bottom: 20px;">
+        <div class="p-col-12 p-md-4">
+            <div class="p-inputgroup">
+                <span class="p-inputgroup-addon">
+                    <i class="pi pi-search"></i>
+                </span>
+                <input pInputText placeholder="Search by name" [(ngModel)]="searchName" />
+            </div>
+        </div>
+        <div class="p-col-12 p-md-4">
+            <div class="p-inputgroup">
+                <span class="p-inputgroup-addon">
+                    <i class="pi pi-globe"></i>
+                </span>
+                <input pInputText placeholder="Search by country" [(ngModel)]="searchCountry" />
+            </div>
+        </div>
+        <div class="p-col-12 p-md-4">
+            <button pButton type="button" label="Search" icon="pi pi-search" (click)="searchGyms()"></button>
+        </div>
+    </div>
+
+
+    <p-table 
+        #dt
+        [value]="gyms"
+        [paginator]="true" 
+        [rows]="size" 
+        [first]="first"
+        [totalRecords]="totalRecords" 
+        [showCurrentPageReport]="true"
+        [tableStyle]="{ 'min-width': '50rem' }"
+        currentPageReportTemplate="Showing {first} to {last} of {totalPages} entries" 
+        [rowsPerPageOptions]="[5, 10 , 25]" 
+        (onPage)="paginate($event)"
+        [lazy]="true" 
+        >
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Member Count</th>
+                <th>Services</th>
+                <th>Actions</th>
+                
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-gym>
+            <tr>
+                <td>{{ gym.name }}</td>
+                <td>{{ gym?.address?.street }}, {{ gym?.address?.city }} {{ gym?.address?.postalCode }}, {{
+                    gym?.address?.country }}</td>
+                <td>{{ gym.memberCount }}</td>
+                <td>
+                    <ul>
+                        <li *ngFor="let service of gym.services">{{ service }}</li>
+                    </ul>
+                </td>
+                <td>
+                    <div style="display: flex; gap: 8px;">
+                      <button pButton type="button" icon="pi pi-trash" (click)="deleteGym(gym)"></button>
+                      <button pButton type="button" icon="pi pi-info-circle" (click)="showGymDetails(gym)"></button>
+                      <button pButton type="button" icon="pi pi-pencil" (click)="navigateToAddEditGym(gym._id)"></button>
+                    </div>
+                  </td>
+                  
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="paginatorleft">
+            <p-button type="button" icon="pi pi-plus" styleClass="p-button-text" (click)="navigateToAddEditGym()"></p-button>
+        </ng-template>
+        <ng-template pTemplate="paginatorright">
+            <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text" />
+        </ng-template>
+    </p-table>
+    <p-confirmDialog [style]="{ width: '450px' }" />
+</p-fieldset>
+

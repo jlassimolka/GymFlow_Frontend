@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+<br>
+<br>
+<!-- Search Section -->
+<div class="p-grid p-align-center p-justify-center search-container" style="margin-bottom: 20px;">
+  <div class="p-col-12 p-md-4">
+    <div class="p-inputgroup">
+      <span class="p-inputgroup-addon">
+        <i class="pi pi-search"></i>
+      </span>
+      <input pInputText placeholder="Search by name" [(ngModel)]="searchName" />
+      <button pButton type="button" label="Search" icon="pi pi-search" (click)="searchCoaches()"></button>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Coach Cards Section -->
+<div class="p-grid p-justify-center p-align-start card-container">
+  <div class="p-col-12 p-md-4 p-lg-4" *ngFor="let coach of coaches">
+    <p-card class="coach-card">
+      <ng-template pTemplate="header">
+        <div class="card-header">
+          <img src="http://localhost:3000/api/upload/{{coach.profilePicture.fileName}}" alt="{{coach.profilePicture.originalName}}" class="coach-image"/>
+        
+        </div>
+      </ng-template>
+     
+      <div class="card-content">
+       
+        <h2>{{ coach.name }}</h2>
+        
+        <p><strong>Phone number:</strong> {{ coach.numeroDeTel }}</p>
+        <p><strong>Email:</strong> {{ coach.email }}</p>
+        <p><strong>Price:</strong> {{ coach.price }}</p>
+      </div>
+      <ng-template pTemplate="footer">
+        <button pButton label="Details" icon="pi pi-info-circle" (click)="showCoachDetails(coach)" class="card-details-button"></button>
+      </ng-template>
+    </p-card>
+  </div>
+</div>
+<p-paginator [rows]="size" [totalRecords]="totalRecords" (onPageChange)="paginate($event)"></p-paginator>
+<app-footer></app-footer>

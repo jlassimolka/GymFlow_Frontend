@@ -1,0 +1,38 @@
+<div class="modal-container">
+  <div class="modal-header">
+    <h2>Coach Details</h2>
+    <button class="close-icon" (click)="closeDialog()">✕</button>
+  </div>
+  <div class="modal-content" *ngIf="coach">
+    <p><strong>Name: </strong>{{ coach.name }}</p>
+    <p><strong>Email: </strong>{{ coach.email }}</p>
+    <p><strong>Phone number: </strong>{{ coach.numeroDeTel }}</p>
+    <p><strong>CIN: </strong>{{ coach.CIN }}</p>
+
+    <ng-container *ngIf="coach.status">
+      <p><strong>Status: </strong>{{ coach.status | titlecase }}</p>
+    </ng-container>
+
+    <ng-container *ngIf="coach.price">
+      <p><strong>Price: </strong>{{ coach.price | currency }}</p>
+    </ng-container>
+
+    <ng-container *ngIf="coach.trainingSpecialties.length > 0">
+      <div class="coach-specialties">
+        <h3>Training Specialties</h3>
+        <ul>
+          <li *ngFor="let specialty of coach.trainingSpecialties">{{ specialty }}</li>
+        </ul>
+      </div>
+    </ng-container>
+
+    <div class="coach-gyms">
+      <h3>Gyms</h3>
+      <ul>
+        <li *ngFor="let gym of coach.gyms">{{ gym.name }}</li>
+      </ul>
+    </div>
+    
+    <button class="close-button" (click)="closeDialog()">Close</button>
+  </div>
+</div>

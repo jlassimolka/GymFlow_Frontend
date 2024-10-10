@@ -1,0 +1,87 @@
+.footer {
+    background-color: #99cdff; /* Light blue background */
+    color: #ffffff; /* General text color */
+    padding: 40px 20px;
+    text-align: center;
+  
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #ffffff; /* Lighter border for contrast */
+  
+      .footer-column {
+        flex: 1;
+        min-width: 250px;
+        margin: 10px 20px;
+  
+        h3, h4 {
+          font-size: 20px;
+          margin-bottom: 15px;
+          color: #fff; /* Dark gray for headings */
+        }
+  
+        p {
+          font-size: 16px;
+          line-height: 1.6;
+          margin-bottom: 10px;
+          color: #34495e; /* Slightly lighter gray for text */
+  
+          /* Style for Email, Phone, and Address */
+          span.label {
+            font-weight: bold;
+            font-size: 18px; /* Similar size to h5 */
+            color: #fff; /* Dark gray for emphasis */
+            display: block;
+            margin-bottom: 5px;
+          }
+        }
+      }
+  
+      .footer-logo {
+        text-align: left;
+  
+        h3 {
+          font-size: 26px;
+          color: #fff; /* Dark gray for the logo */
+        }
+  
+        p {
+          margin-top: 10px;
+          color: #fff; /* Slightly lighter gray for text */
+        }
+      }
+  
+      .footer-contact,
+      .footer-description {
+        text-align: left;
+  
+        p {
+          margin: 8px 0;
+          color: #fff;/* Slightly lighter gray for text */
+  
+          /* Style for Email, Phone, and Address */
+          span.label {
+            font-weight: bold;
+            font-size: 18px; /* Similar size to h5 */
+            color: #fff; /* Dark gray for emphasis */
+            display: block;
+            margin-bottom: 5px;
+          }
+        }
+      }
+    }
+  
+    .footer-bottom {
+      margin-top: 20px;
+  
+      p {
+        font-size: 14px;
+        color: #34495e; /* Slightly lighter gray for footer bottom text */
+      }
+    }
+  }
+  

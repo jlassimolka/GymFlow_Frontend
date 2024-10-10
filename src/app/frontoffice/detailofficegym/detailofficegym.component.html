@@ -1,0 +1,62 @@
+<app-navbar></app-navbar>
+
+<div *ngIf="gym; else noGym" class="gym-details">
+  <h2 class="gym-name">{{ gym.name }}</h2>
+
+  <div class="gym-info">
+    <div class="gym-address">
+      <h3>Address</h3>
+      <p>
+        <strong>{{ gym.address?.street }}</strong><br>
+        {{ gym.address?.city }}, {{ gym.address?.postalCode }}, {{ gym.address?.country }}
+      </p>
+    </div>
+    
+    <div class="gym-contact">
+      <h3>Contact</h3>
+      <p>
+        <strong>Phone:</strong> {{ gym.contact?.phone }}<br>
+        <strong>Email:</strong> {{ gym.contact?.email }}
+      </p>
+    </div>
+  </div>
+
+  <div class="gym-stats">
+    <p><strong>Member Count:</strong> {{ gym.memberCount }}</p>
+    
+    <div class="gym-services">
+      <h3>Services</h3>
+      <ul>
+        <li *ngFor="let service of gym.services">{{ service }}</li>
+      </ul>
+    </div>
+    
+    <div class="gym-hours">
+      <h3>Opening Hours</h3>
+      <ul>
+        <li *ngFor="let day of gym.openingHours | keyvalue">
+          {{ day.key }}: {{ day.value }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="related-details">
+    <h3>Coaches</h3>
+    <ul>
+      <li *ngFor="let coach of coaches">
+        <p><strong>Name:</strong> {{ coach.name }}</p>
+        <p><strong>Email:</strong> {{ coach.email }}</p>
+      </li>
+    </ul>
+    <ng-template #noCoaches>
+      <p>No coaches available.</p>
+    </ng-template>
+  </div>
+</div>
+
+<ng-template #noGym>
+  <p>No gym details available.</p>
+</ng-template>
+
+<app-footer></app-footer>

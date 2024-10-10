@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+<!-- Search Section -->
+ <br>
+ <br>
+<div class="p-grid p-align-center p-justify-center search-container" style="margin-bottom: 20px;">
+  <div class="p-col-12 p-md-4">
+      <div class="p-inputgroup">
+          <span class="p-inputgroup-addon">
+              <i class="pi pi-search"></i>
+          </span>
+          <input pInputText placeholder="Search by name" [(ngModel)]="searchName" />
+      </div>
+  </div>
+  <div class="p-col-12 p-md-4">
+      <div class="p-inputgroup">
+          <span class="p-inputgroup-addon">
+              <i class="pi pi-globe"></i>
+          </span>
+          <input pInputText placeholder="Search by country" [(ngModel)]="searchCountry" />
+      </div>
+  </div>
+  <div class="p-col-12 p-md-4">
+      <button pButton type="button" label="Search" icon="pi pi-search" (click)="searchGyms()"></button>
+  </div>
+</div>
+
+
+<div class="gym-cards-container">
+  <div class="gym-card" *ngFor="let gym of gyms">
+    <p-card>
+      <ng-template pTemplate="header">
+        <img src="http://localhost:3000/api/upload/{{gym.profilePicture.fileName}}" alt="{{gym.profilePicture.originalName}}" class="gym-image"/>
+      </ng-template>
+      <div class="gym-info">
+        <h2>{{ gym.name }}</h2>
+        <p>{{ gym?.address?.street }}, {{ gym?.address?.city }} {{ gym?.address?.postalCode }}, {{ gym?.address?.country }}</p>
+        <p><strong>Member Count:</strong> {{ gym.memberCount }}</p>
+        <p><strong>Services:</strong></p>
+        <ul>
+          <li *ngFor="let service of gym.services">{{ service }}</li>
+        </ul>
+        <!-- Add a specific class to the button -->
+        <button pButton type="button" label="View Details" (click)="viewGymDetails(gym._id)" class="gym-details-button"></button>
+      </div>
+    </p-card>
+  </div>
+</div>
+
+<p-paginator [rows]="size" [totalRecords]="totalRecords" (onPageChange)="paginate($event)"></p-paginator>
+<app-footer></app-footer>

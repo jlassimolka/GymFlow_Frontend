@@ -1,0 +1,96 @@
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.coach-card {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.card-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.p-card-footer {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.card-details-button {
+  background-color: #99cdff; /* Background color for button */
+  color: #fff; /* Text color for button */
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.card-details-button:hover {
+  background-color: #f0c040; /* Darken on hover */
+}
+
+p-card {
+  border-radius: 8px;
+}
+.search-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem; /* Space between search inputs */
+}
+
+.p-inputgroup {
+  width: 100%;
+}
+
+.p-inputgroup-addon {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+input {
+  border-radius: 4px;
+}
+
+button.p-button {
+  width: 100%;
+  background-color: #99cdff; // Change this to your desired background color
+  border-color: #99cdff; // Change this to your desired border color
+  color: #fff; // Change this to your desired text color
+  border-radius: 4px; // Optional: Adjust border radius if needed
+
+  &:hover {
+    background-color: #f0c040; // Change this to your desired hover background color
+    border-color: #f0c040; // Change this to your desired hover border color
+  }
+}
+
+.card-header {
+  padding: 10px;
+  text-align: center;
+  height: 400px; /* Set a fixed height for the image container */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.coach-image {
+  width: 100%; /* Make the image take the full width */
+  height: 350px; /* Make the image take the full height */
+  object-fit: cover; /* Ensure the image covers the area without distortion */
+  border-radius: 8px; /* Optional: match the card's border radius */
+}
+

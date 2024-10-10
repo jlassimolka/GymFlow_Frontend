@@ -1,0 +1,132 @@
+// showgym.component.scss
+
+.gym-details {
+  max-width: 1200px;
+  margin: 40px auto; // Space between navbar and footer
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 12px; // Slightly more rounded corners
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); // Softer shadow
+
+  .gym-name {
+    text-align: center;
+    font-size: 2.5rem; // Larger header
+    color: #333;
+    margin-bottom: 30px; // Increased bottom margin
+    font-weight: 700; // Bolder font
+  }
+
+  .gym-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; // Space between info sections
+    margin-bottom: 30px; // Increased bottom margin
+
+    .gym-address, .gym-contact {
+      background-color: #fff;
+      padding: 20px; // Increased padding
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 48%; // Adjusted width for better spacing
+
+      h3 {
+        font-size: 1.75rem; // Larger headings
+        margin-bottom: 15px; // Increased bottom margin
+        color: #007bff; // Changed color
+      }
+
+      p {
+        line-height: 1.6;
+        color: #555;
+      }
+    }
+  }
+
+  .gym-stats {
+    background-color: #fff;
+    padding: 20px; // Increased padding
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px; // Increased bottom margin
+
+    p {
+      font-size: 1.25rem; // Larger text
+      color: #333;
+      margin-bottom: 15px; // Space between paragraphs
+    }
+
+    .gym-services, .gym-hours {
+      margin-top: 20px; // Increased top margin
+
+      h3 {
+        font-size: 1.75rem; // Larger headings
+        color: #007bff; // Changed color
+        margin-bottom: 15px;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+          background-color: #f1f1f1; // Lighter background for list items
+          padding: 15px;
+          border-radius: 6px; // Slightly more rounded corners
+          margin-bottom: 12px;
+          color: #555;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  .related-details {
+    background-color: #fff;
+    padding: 20px; // Increased padding
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    h3 {
+      font-size: 1.75rem; // Larger headings
+      color: #007bff; // Changed color
+      margin-bottom: 20px; // Increased bottom margin
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        background-color: #f1f1f1;
+        padding: 15px;
+        border-radius: 6px;
+        margin-bottom: 12px;
+
+        p {
+          margin: 0;
+          color: #555;
+
+          strong {
+            color: #333;
+          }
+        }
+      }
+    }
+  }
+}
+
+ng-template {
+  text-align: center;
+  color: #777;
+  font-size: 1.2rem;
+  padding: 20px;
+}
+
+// Space between navbar and footer
+app-navbar + .gym-details {
+  margin-top: 60px; // Add space below the navbar
+}
+
+.gym-details + app-footer {
+  margin-top: 60px; // Add space above the footer
+}

@@ -1,0 +1,59 @@
+.modal-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  max-width: 600px;  // Increased max-width for larger modal
+  width: 100%;
+  z-index: 1000; // Ensure it's above other content
+  overflow-y: auto;
+
+  .modal-header {
+    margin-bottom: 20px;
+    font-size: 1.75rem;  // Increased font size for prominence
+    font-weight: bold;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+    color: #333;
+  }
+  
+  .modal-content {
+    font-size: 1rem;
+    line-height: 1.5;
+
+    p {
+      margin: 10px 0; // Margin for better spacing between paragraphs
+    }
+
+    strong {
+      color: #007bff; // Color for labels to make them stand out
+    }
+
+    .address {
+      margin: 20px 0;
+    }
+
+    .close-button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 8px; // Rounded corners for the button
+      padding: 12px 20px; // Larger padding for a more prominent button
+      cursor: pointer;
+      font-size: 1.125rem; // Slightly larger font size
+      text-align: center;
+      display: block;
+      margin-top: 20px;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      
+      &:hover {
+        background-color: #0056b3;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}

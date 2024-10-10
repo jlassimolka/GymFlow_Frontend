@@ -1,0 +1,148 @@
+<app-menu></app-menu>
+<div class="blank-layout-container justify-content-center align-items-center bg-light-primary">
+  <div class="position-relative row w-100 h-100 bg-gredient justify-content-center">
+    <div class="col-lg-8 d-flex align-items-center">
+      <mat-card class="cardWithShadow ">
+        <mat-card-content class="p-32">
+          <div class="text-center">
+            <a [routerLink]="['/dashboard']">
+              <img
+                src="./assets/images/logos/Fitnessgym.png"
+                class="align-middle m-2"
+                alt="logo"
+                style="width:  180px; height: 200px;"
+              />
+            </a>
+          </div>
+          <div class="or-border m-t-30">sign up </div>
+
+          <form [formGroup]="registerManagerForm" (ngSubmit)="onSubmit()" class="m-t-30">
+            <div class="row">
+              <!-- Column 1 -->
+              <div class="col-md-6">
+                <!-- Name -->
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>Name</mat-label>
+                  <input matInput formControlName="name" placeholder="Enter name" />
+                  <mat-error *ngIf="registerManagerForm.get('name')?.hasError('required')">
+                    Name is required
+                  </mat-error>
+                </mat-form-field>
+
+                <!-- Email -->
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>Email Address</mat-label>
+                  <input matInput formControlName="email" type="email" placeholder="Enter email" />
+                  <mat-error *ngIf="registerManagerForm.get('email')?.hasError('required')">
+                    Email is required
+                  </mat-error>
+                  <mat-error *ngIf="registerManagerForm.get('email')?.hasError('email')">
+                    Invalid email format
+                  </mat-error>
+                </mat-form-field>
+
+                <!-- Phone Number -->
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>Phone Number</mat-label>
+                  <input matInput formControlName="phoneNumber" placeholder="Enter phone number" />
+                  <mat-error *ngIf="registerManagerForm.get('phoneNumber')?.hasError('required')">
+                    Phone number is required
+                  </mat-error>
+                </mat-form-field>
+
+                <!-- CIN -->
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>CIN</mat-label>
+                  <input matInput formControlName="CIN" placeholder="Enter CIN" />
+                  <mat-error *ngIf="registerManagerForm.get('CIN')?.hasError('required')">
+                    CIN is required
+                  </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>Password</mat-label>
+                  <input matInput type="password" formControlName="password" placeholder="Enter password" required />
+                  <mat-error *ngIf="registerManagerForm.get('password')?.invalid">
+                    Password is required and must be at least 8 characters long
+                  </mat-error>
+                </mat-form-field>
+
+                <!-- Profile Picture Upload -->
+                
+<div class="w-100 file-upload-container">
+  <span class="upload-text">Profile Picture</span>
+  <input type="file" (change)="onFileSelected($event)" accept="image/*" />
+</div>
+
+
+              </div>
+
+              <!-- Column 2 -->
+              <div class="col-md-6">
+                <div formGroupName="address">
+                  <!-- Address Fields -->
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Street</mat-label>
+                    <input matInput formControlName="street" placeholder="Enter street" />
+                    <mat-error *ngIf="registerManagerForm.get('address.street')?.hasError('required')">
+                      Street is required
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>City</mat-label>
+                    <input matInput formControlName="city" placeholder="Enter city" />
+                    <mat-error *ngIf="registerManagerForm.get('address.city')?.hasError('required')">
+                      City is required
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Postal Code</mat-label>
+                    <input matInput formControlName="postalCode" placeholder="Enter postal code" />
+                    <mat-error *ngIf="registerManagerForm.get('address.postalCode')?.hasError('required')">
+                      Postal Code is required
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Country</mat-label>
+                    <input matInput formControlName="country" placeholder="Enter country" />
+                    <mat-error *ngIf="registerManagerForm.get('address.country')?.hasError('required')">
+                      Country is required
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+
+            <!-- Gym Selection -->
+            
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>Gym</mat-label>
+                  <mat-select formControlName="gym">
+                    <mat-option *ngFor="let gym of gyms" [value]="gym._id">
+                      {{ gym.name }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              
+
+            <div class="text-center m-t-30">
+              <button mat-flat-button color="primary" class="w-100 m-t-24" type="submit" [disabled]="registerManagerForm.invalid">
+                Register
+              </button>
+            </div>
+          </form>
+
+          <span class="d-block f-w-500 text-center m-t-24">
+            Already have an Account?
+            <a [routerLink]="['/authentication/login']" class="text-decoration-none text-primary f-w-500 f-s-14">
+              Sign In
+            </a>
+          </span>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,86 @@
+<div class="form-container">
+  <form [formGroup]="coachForm" (ngSubmit)="onSubmit()">
+    <mat-card>
+      <mat-card-title>{{ isEditMode ? 'Edit Coach' : 'Add Coach' }}</mat-card-title>
+      <mat-card-content>
+        <mat-divider></mat-divider>
+        
+        <!-- Personal Information -->
+        <h3>Personal Information</h3>
+        <div class="form-section">
+          <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" type="text" required>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" type="email" required>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Phone Number</mat-label>
+            <input matInput formControlName="numeroDeTel" type="text" required>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>CIN</mat-label>
+            <input matInput formControlName="CIN" type="text" required>
+          </mat-form-field>
+
+          <div class="file-input-container">
+            <label for="fileInput">Profile Picture</label>
+            <input id="fileInput" type="file" (change)="onFileSelected($event)">
+          </div>
+          
+        </div>
+
+        <mat-divider></mat-divider>
+        
+        <!-- Professional Information -->
+        <h3>Professional Information</h3>
+        <div class="form-section">
+          <mat-form-field appearance="outline">
+            <mat-label>Status</mat-label>
+            <mat-select formControlName="status">
+              <mat-option value="active">Active</mat-option>
+              <mat-option value="inactive">Inactive</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Price</mat-label>
+            <input matInput formControlName="price" type="number" required>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Training Specialties</mat-label>
+            <mat-select formControlName="trainingSpecialties" multiple>
+              <mat-option *ngFor="let specialty of trainingSpecialties" [value]="specialty">
+                {{ specialty }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Gyms</mat-label>
+            <mat-select formControlName="gyms" multiple>
+              <mat-option *ngFor="let gym of gyms" [value]="gym._id">
+                {{ gym.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+         
+
+        </div>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit">
+          {{ isEditMode ? 'Update Coach' : 'Add Coach' }}
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>

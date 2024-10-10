@@ -1,0 +1,96 @@
+<div class="form-container">
+  <form [formGroup]="gymForm" (ngSubmit)="onSubmit()">
+    <mat-card>
+      <mat-card-title>{{ isEditMode ? 'Edit Gym' : 'Add Gym' }}</mat-card-title>
+      <mat-card-content>
+        <!-- Name Field -->
+        <mat-divider></mat-divider>
+        <div class="form-section">
+          <h3>Name</h3>
+          <mat-form-field appearance="outline" class="full-width">
+            
+            <mat-label>Name</mat-label>
+            <input matInput id="name" formControlName="name" type="text" required>
+          </mat-form-field>
+        </div>
+
+        <!-- Address Fields -->
+        <mat-divider></mat-divider>
+        <h3>Address</h3>
+        <div formGroupName="address" class="form-section">
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Street</mat-label>
+            <input matInput id="street" formControlName="street" type="text" required>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>City</mat-label>
+            <input matInput id="city" formControlName="city" type="text" required>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Postal Code</mat-label>
+            <input matInput id="postalCode" formControlName="postalCode" type="text" required>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Country</mat-label>
+            <input matInput id="country" formControlName="country" type="text" required>
+          </mat-form-field>
+        </div>
+
+        <!-- Opening Hours -->
+        <mat-divider></mat-divider>
+        <h3>Opening Hours</h3>
+        <div formGroupName="openingHours" class="opening-hours-grid form-section">
+          <div *ngFor="let day of daysOfWeek">
+            <mat-form-field appearance="outline">
+              <mat-label>{{ day }}</mat-label>
+              <mat-select [formControlName]="day">
+                <mat-option *ngFor="let hours of availableHours" [value]="hours">{{ hours }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <!-- Services and Member Count -->
+        <mat-divider></mat-divider>
+        <div class="form-section">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Services (comma separated)</mat-label>
+            <input matInput id="services" formControlName="services" type="text">
+          </mat-form-field>
+        </div>
+        <div class="form-section">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Member Count</mat-label>
+            <input matInput id="memberCount" formControlName="memberCount" type="number">
+          </mat-form-field>
+        </div>
+
+        <!-- Contact Fields -->
+        <mat-divider></mat-divider>
+        <h3>Contact Information</h3>
+        <div formGroupName="contact" class="form-section">
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Phone</mat-label>
+            <input matInput id="phone" formControlName="phone" type="text" required>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Email</mat-label>
+            <input matInput id="email" formControlName="email" type="email" required>
+          </mat-form-field>
+        </div>
+
+        <div class="file-input-container">
+          <label for="fileInput">Profile Picture</label>
+          <input id="fileInput" type="file" (change)="onFileSelected($event)">
+        </div>
+      </mat-card-content>
+
+      <!-- Submit Button -->
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit">{{ isEditMode ? 'Update Gym' : 'Add Gym' }}</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>
+
+

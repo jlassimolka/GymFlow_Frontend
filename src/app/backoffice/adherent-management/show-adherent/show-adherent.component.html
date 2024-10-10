@@ -1,0 +1,39 @@
+<div class="modal-container">
+  <div class="modal-header">
+    <h2>Adherent Details</h2>
+  </div>
+  <div class="modal-content">
+    <div *ngIf="adherent">
+      <p><strong>Name:</strong> {{ adherent.name }}</p>
+      <p><strong>Email:</strong> {{ adherent.email }}</p>
+      <p><strong>Phone Number:</strong> {{ adherent.phoneNumber }}</p>
+      <p><strong>CIN:</strong> {{ adherent.CIN }}</p>
+  
+      <ng-container *ngIf="adherent.address">
+        <div class="adherent-address">
+          <h3>Address</h3>
+          <p><strong>Street:</strong> {{ adherent.address.street }}</p>
+          <p><strong>City:</strong> {{ adherent.address.city }}</p>
+          <p><strong>Postal Code:</strong> {{ adherent.address.postalCode }}</p>
+          <p><strong>Country:</strong> {{ adherent.address.country }}</p>
+        </div>
+      </ng-container>
+  
+      <ng-container *ngIf="gym">
+        <div class="adherent-gym">
+          <h3>Gym</h3>
+          <p>{{ gym.name }}</p>
+        </div>
+      </ng-container>
+  
+      <ng-container *ngIf="coach">
+        <div class="adherent-coach">
+          <h3>Coach</h3>
+          <p>{{ coach.name }}</p>
+        </div>
+      </ng-container>
+  
+      <button class="close-button" (click)="closeDialog()">Close</button>
+    </div>
+  </div>
+</div>

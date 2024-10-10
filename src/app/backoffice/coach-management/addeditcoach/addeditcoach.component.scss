@@ -1,0 +1,68 @@
+.form-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+
+  mat-card {
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+    mat-card-title {
+      font-size: 1.75rem;
+      font-weight: bold;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    mat-card-content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .form-section {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+
+        mat-form-field {
+          flex: 1;
+          min-width: 220px;
+        }
+      }
+
+      h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #007bff;
+        margin-bottom: 10px;
+      }
+
+      mat-divider {
+        margin: 20px 0;
+      }
+    }
+
+    mat-card-actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 20px;
+
+      button {
+        margin-left: 10px;
+      }
+    }
+  }
+}
+.file-input-container {
+  margin-top: 16px;
+}
+
+.file-input-container label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.file-input-container input[type="file"] {
+  display: block;
+}

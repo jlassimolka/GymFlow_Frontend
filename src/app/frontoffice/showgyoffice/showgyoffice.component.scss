@@ -1,0 +1,91 @@
+.gym-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.gym-card {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gym-image {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+.gym-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  justify-content: center; /* Center content vertically */
+}
+
+.gym-info h2 {
+  margin-top: 0;
+}
+
+.gym-details-button {
+  background-color:  #99cdff;/* Yellow background */
+  color: fff; /* Black text color */
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.gym-details-button:hover {
+  background-color: #f0c040; /* Darken on hover */
+}
+
+p-paginator {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+.search-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem; /* Space between search inputs */
+}
+
+.p-inputgroup {
+  width: 100%;
+}
+
+.search-container {
+  margin-bottom: 20px;
+
+  .p-inputgroup {
+    margin-bottom: 10px;
+
+    .p-inputgroup-addon {
+      background-color: #f0f0f0;
+      color: #333;
+    }
+
+    input {
+      border-radius: 4px;
+    }
+  }
+
+  // Customize the search button
+  button.p-button {
+    width: 100%;
+    background-color: #99cdff; // Change this to your desired background color
+    border-color: #007ad9; // Change this to your desired border color
+    color: #fff; // Change this to your desired text color
+    border-radius: 4px; // Optional: Adjust border radius if needed
+
+    &:hover {
+      background-color: #f0c040; // Change this to your desired hover background color
+      border-color: #f0c040; // Change this to your desired hover border color
+    }
+  }
+}

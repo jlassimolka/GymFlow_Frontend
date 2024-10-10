@@ -1,0 +1,23 @@
+<div class="modal-container">
+  <div class="modal-header">
+    <h2>Manager Details</h2>
+  </div>
+  <div class="modal-content">
+    <div *ngIf="manager">
+      <p><strong>Name:</strong> {{ manager.name }}</p>
+      <p><strong>Email:</strong> {{ manager.email }}</p>
+      <p><strong>Phone Number:</strong> {{ manager.phoneNumber }}</p>
+      <p><strong>CIN:</strong> {{ manager.CIN }}</p>
+      
+      <div *ngIf="manager.address">
+        <p><strong>Address:</strong></p>
+        <p>{{ manager.address.street }}, {{ manager.address.city }}, {{ manager.address.postalCode }}, {{ manager.address.country }}</p>
+      </div>
+      
+      <div *ngIf="gym">
+        <p><strong>Managed Gym:</strong> {{ gym.name }}</p>
+      </div>
+    </div>
+    <button class="close-button" (click)="closeDialog()">Close</button>
+  </div>
+</div>

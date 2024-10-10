@@ -1,0 +1,41 @@
+<div class="home-container">
+  <!-- Navigation Bar -->
+  <app-navbar></app-navbar>
+  
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-text">
+      <h1>Welcome to GymFlow</h1>
+      <p>Your ultimate gym management solution</p>
+      
+      <button (click)="scrollToAboutSection()">Get Started</button>
+
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <div id="about-section" class="about-section">
+    <div class="about-image">
+      <img src="./assets/images/logos/Fitnessgym.png" alt="Gym Image">
+    </div>
+    <div class="about-text">
+      <h2>About Us</h2>
+      <p>ymFlow is a comprehensive platform designed to connect you with the perfect gyms, coaches, and fitness services tailored to your unique needs. Whether you're a beginner looking for guidance or an experienced athlete seeking the right environment to train, GymFlow makes it easy to find exactly what you're looking for. With our intuitive search and filtering options, you can explore gyms based on location, facilities, classes, and more. Additionally, you can discover coaches with specific expertise, ensuring you get personalized training to reach your goals. GymFlow not only simplifies the process of finding the right fitness resources but also enhances your overall experience by providing access to reviews, schedules, and booking options—all in one convenient platform. Our mission is to make fitness more accessible and enjoyable for everyone, whether you're training for a marathon or just looking to stay active and healthy.</p>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const button = document.getElementById('get-started-button');
+    const targetSection = document.getElementById('about-section');
+
+    if (button && targetSection) {
+      button.addEventListener('click', function() {
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+      });
+    }
+  });
+</script>
+
